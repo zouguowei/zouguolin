@@ -1,0 +1,167 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>{$page_title}</title>
+<!-- TemplateEndEditable -->
+<!-- TemplateBeginEditable name="head" -->
+<!-- TemplateEndEditable -->
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="icon" href="animated_favicon.gif" type="image/gif" />
+<link href="{$ecs_css_path}" rel="stylesheet" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS|{$page_title}" href="{$feed_url}" />
+{* 包含脚本文件 *}
+{insert_scripts files='common.js,index.js'}
+</head>
+<body class="index_page" style="min-width:1200px;">
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+{insert_scripts files='jquery.SuperSlide.js'}
+<!-- #BeginLibraryItem "/library/index_ad.lbi" --><!-- #EndLibraryItem -->
+<div class="indexw_content">
+<div class="block clearfix" >
+<div class="AreaL">
+<div id="mallNews" class="box_1">
+    <h3><span>最新资讯</span></h3>
+    <div class="NewsList tc" style="border-top:none">
+        <ul>
+        <!--{foreach from=$new_articles item=article}-->
+        <li>
+      <a href="{$article.url}" title="{$article.title|escape:html}">{$article.short_title|truncate:20:"...":true}</a>
+        </li>
+        <!--{/foreach}-->
+        </ul>
+    </div>
+</div>
+<!-- TemplateBeginEditable name="商店公告下广告" -->
+<!-- #BeginLibraryItem "/library/ad_position.lbi" -->
+
+{insert name='ads' id=$ads_id num=$ads_num}
+
+<div class="blank"></div>
+ <!-- #EndLibraryItem -->
+<!-- TemplateEndEditable -->
+</div>
+<div class="Arear">
+<div class="sale_box_new clearfix">
+<h3><span>服务流程</span></h3>
+  <div class="indexw_content_4_top clearfix">
+     <ul class="clearfix">
+       <!--{foreach from=$new_articles_13 key=key item=article}-->
+       <li>
+       		<p><a href="{$article.url}"><img src="images/fwlc{$key}.jpg" border="0" class="B_blue"/></a></p>
+       		<p class="indexw_content_pright"><a href="{$article.url}" title="{$article.title|escape:html}" style="font-weight:bold;">{$article.title}</a><br /><br />{$article.description}</p>
+       	</li>
+       <!--{/foreach}-->
+       </ul>
+   </div>
+ </div>
+<div class="sale_box_new clearfix" style="width:486px;">
+<h3><span>选择我们的三大理由</span></h3>
+  <div class="indexw_content_4_top clearfix">
+     <ul class="clearfix">
+        <li>
+       		<p><a><img src="images/ln1.jpg" border="0" class="B_blue"/></a></p>
+       		<p class="indexw_content_pright" style="width: 300px;"><a style="font-weight:bold;">一棵树-理念性</a><br /><br />个性时尚+自然本真+深度创作+绿色环保+完美品质+引领时尚艺术手绘的最新潮流</p>
+       	</li>
+       	<li>
+       		<p><a><img src="images/ln2.jpg" border="0" class="B_blue"/></a></p>
+       		<p class="indexw_content_pright"><a style="font-weight:bold;">一棵树-专业性</a><br /><br />专业名牌高校艺术创作团队+丰富的行业经验</p>
+       	</li>
+       	<li>
+       		<p><a><img src="images/ln3.jpg" border="0" class="B_blue"/></a></p>
+       		<p class="indexw_content_pright" style="width: 300px;"><a style="font-weight:bold;">一棵树-服务性</a><br />为您提供最实惠最优质的艺术创作服务、艺术品质量把关、节约成本预算、良好的职业道德操守、兢兢业业的工作态度</p>
+       	</li>
+       </ul>
+   </div>
+ </div>
+<div class="blank" style="height:1px;"></div>
+</div> 
+  <div class="goodsBox_1">
+  <!-- TemplateBeginEditable name="首页右侧区域" -->
+<!-- TemplateEndEditable -->
+  
+<!-- {if $new_goods} -->
+<!-- {if $cat_rec_sign neq 1} -->
+<div class="xm-box">
+  <h4 class="title"><span>最新案例</span> <a class="more" href="../search.php?intro=new">更多</a></h4>
+  <div class="indexw_content_4_top"></div>
+  <div id="show_new_area" class="clearfix"> 
+    
+    <!--{foreach from=$new_goods key=key item=goods}-->
+    <div class="goodsItem {if $key==0}no-margin-left{/if}"> <a href="{$goods.url}"><img src="{$goods.original_img}" alt="{$goods.name|escape:html}" class="goodsimg" /></a><br />
+      <p class="f1"><a href="{$goods.url}" title="{$goods.name|escape:html}">{$goods.short_style_name}</a></p>
+      <p>
+     <font class="market"> 价格：{$goods.market_price}</font> <br/>
+      </p>
+      </div>
+    <!--{/foreach}--> 
+  </div>
+</div>
+<div class="blank"></div>
+<!-- {/if} --> 
+<!-- {/if} --> 
+<!-- {if $hot_goods} -->
+<!-- {if $cat_rec_sign neq 1} -->
+<div class="xm-box">
+  <h4 class="title"><span>热门推荐</span> <a class="more" href="../search.php?intro=new">更多</a></h4>
+  <div class="indexw_content_4_top"></div>
+  <div id="show_hot_area" class="clearfix"> 
+
+    <!--{foreach from=$hot_goods key=key item=goods}-->
+    <div class="goodsItem {if $key==0}no-margin-left{/if}"> <a href="{$goods.url}"><img src="{$goods.original_img}" alt="{$goods.name|escape:html}" class="goodsimg" /></a><br />
+      <p class="f1"><a href="{$goods.url}" title="{$goods.name|escape:html}">{$goods.short_style_name}</a></p>
+      <p>
+      <font class="market">价格：{$goods.market_price}</font> <br/>
+      </p>
+      </div>
+    <!--{/foreach}--> 
+  </div>
+</div>
+<div class="blank"></div>
+<!-- {/if} --> 
+<!-- {/if} --> 
+<!-- {if $best_goods} -->
+<!-- {if $cat_rec_sign neq 1} -->
+<div class="xm-box">
+  <h4 class="title"><span>精品推荐</span> <a class="more" href="../search.php?intro=new">更多</a></h4>
+  <div class="indexw_content_4_top"></div>
+  <div id="show_best_area" class="clearfix"> 
+    <!--{foreach from=$best_goods key=key item=goods}-->
+    <div class="goodsItem {if $key==0}no-margin-left{/if}"> <a href="{$goods.url}"><img src="{$goods.original_img}" alt="{$goods.name|escape:html}" class="goodsimg" /></a><br />
+      <p class="f1"><a href="{$goods.url}" title="{$goods.name|escape:html}">{$goods.short_style_name}</a></p>
+       <p>
+      <font class="market">价格：{$goods.market_price}</font> <br/>
+    </div>
+    <!--{/foreach}--> 
+  </div>
+</div>
+<div class="blank"></div>
+<!-- {/if} --> 
+<!-- {/if} --> 
+</div> 
+</div>
+  <!--right end-->
+
+ </div>
+<div class="bottom_ad">
+            <!-- TemplateBeginEditable name="底部通栏广告" -->
+<!-- #BeginLibraryItem "/library/ad_position.lbi" -->
+
+{insert name='ads' id=$ads_id num=$ads_num}
+
+<div class="blank"></div>
+ <!-- #EndLibraryItem -->
+<!-- TemplateEndEditable -->
+
+</div>
+<div class="resetClear"></div>
+
+    <!-- #BeginLibraryItem "/library/help.lbi" --><!-- #EndLibraryItem -->
+ 
+
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+</body>
+</html>

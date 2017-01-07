@@ -1,0 +1,40 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $pictures}-->
+ <div class="picture" id="imglist">
+		
+             <!-- {foreach from=$pictures item=picture name=no}-->
+             
+             <!-- {if $smarty.foreach.no.iteration < 2}  -->
+            
+           <a  href="{$picture.img_url}"
+    	rel="zoom1" 
+        rev="{$picture.img_url}"
+        title="{$picture.img_desc|escape:html}">
+        <img src="{if $picture.thumb_url}{$picture.thumb_url}{else}{$picture.img_url}{/if}" alt="{$goods.goods_name}" class="onbg" /></a>
+           <!-- {else}-->
+  <a  href="{$picture.img_url}"
+    	rel="zoom1" 
+        rev="{$picture.img_url}"
+        title="{$picture.img_desc|escape:html}">
+        <img src="{if $picture.thumb_url}{$picture.thumb_url}{else}{$picture.img_url}{/if}" alt="{$goods.goods_name}" class="autobg" /></a>
+          <!-- {/if}-->
+            <!--{/foreach}-->
+           
+</div>
+ 
+<!-- {/if}-->
+<script type="text/javascript">
+mypicBg();
+//var slidepicBg_flag = 1;
+//setInterval("slidepicBg()",3000);
+//function slidepicBg(){
+//	$("#imglist").children().children().attr("class","autobg");
+//	$("#imglist").children().eq(slidepicBg_flag).children().attr("class","onbg");
+//	$("#goodsimg").attr("src",$("#imglist").children().eq(slidepicBg_flag).children().attr("lang"));
+//	if(slidepicBg_flag<$("#imglist").children().length-1){
+//		slidepicBg_flag++;
+//	}else{
+//		slidepicBg_flag = 0;
+//	}
+//}
+</script>
